@@ -1,0 +1,27 @@
+Step 1: Open a Terminal
+
+Open a terminal window on your Ubuntu system. Recommend using Ubuntu 16,18,20.
+
+Step 2: Navigate to the cpuminer Directory
+
+Use the cd command to navigate to the directory where cpuminer is located. 
+
+Step 3: set execute permission
+	sudo chmod 777 *
+
+Step 4: mining
+
+-  sudo ./cpuminer -o "RXD_Pool" -u "RXD_Adress.WorkerID" --max-temp="max_temp" -t "clock" -v "vccint"
+
+Replace:
+- "RXD_Pool" with your pool
+- "RXD_Adress" with your address
+- "max_temp" with your maximum temperature ( recommend from 65 to 90 )
+- "clock" with your FPGA clock
+- "vccint" with your FPGA Voltage
+
+ --skip 0 : both change vccInt and load bitstream
+ --skip 1: load bitstream only
+ --skip 2 : no load bitstream, no change vccInt
+
+Example: sudo ./cpuminer -o stratum+tcp://usw.vipor.net:5067 -u 12XfbWYep8zKj9RdmfRiwL3fu3PRvNRdfe.Test --max-temp=65 -t 400 -v 675  --skip 0
